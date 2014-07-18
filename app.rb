@@ -12,7 +12,7 @@ class App < Sinatra::Application
   end
 
   get "/" do
-    "hello world!"
+    erb :home
   end
 
 end

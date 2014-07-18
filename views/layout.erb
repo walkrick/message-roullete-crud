@@ -1,11 +1,12 @@
 <html>
 <head>
   <title>Message</title>
+  <link rel="stylesheet" type="text/css" href="mystyle.css">
 </head>
 <body>
   <h1>Message Roullete</h1>
-  <% if flash[:notice] %>
-    <%= flash[:notice] %><br>
+  <% if flash[:error] %>
+    <%= flash[:error] %><br>
   <% end %>
   <%= yield %>
 </body>

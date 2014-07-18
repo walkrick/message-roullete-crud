@@ -23,7 +23,7 @@ class App < Sinatra::Application
     if message.length <= 140
       @database_connection.sql("INSERT INTO messages (message) VALUES ('#{message}')")
     else
-      flash[:notice] = ""[:notice] = "Error: restrict your message to only 140 characters."
+      flash[:error] = "Error: restrict your message to only 140 characters."
     end
     redirect "/"
   end

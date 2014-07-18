@@ -3,8 +3,10 @@
   <title>Message</title>
 </head>
 <body>
-
+  <h1>Message Roullete</h1>
+  <% if flash[:notice] %>
+    <%= flash[:notice] %><br>
+  <% end %>
   <%= yield %>
-
 </body>
 </html>

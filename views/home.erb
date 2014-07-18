@@ -1,1 +1,12 @@
-<h1>Howdy Doody</h1>
+<form method="post" action="/message">
+  <label for="message">Message:</label>
+  <input type="textarea" id="message" name="message">
+  <button>Submit</button>
+</form>
+
+<% @messages.each do |message| %>
+
+  <li><%= message["message"] %></li>
+
+<% end %>
+

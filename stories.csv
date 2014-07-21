@@ -1,0 +1,48 @@
+Id,Title,Labels,Iteration,Iteration Start,Iteration End,Type,Estimate,Current State,Created at,Accepted at,Deadline,Requested By,Description,URL,Owned By
+75328746,"As a user, when I click ""Edit"" for a message, I should see a form prefilled with that message's content","",1,"Jul 21, 2014","Jul 27, 2014",feature,2,unstarted,"Jul 20, 2014",,,Hunter Gillane,"As a user
+When I click ""Edit"" next to a message
+Then I should see ""Edit Message""
+And a form with the message's content prefilled in a form",https://www.pivotaltracker.com/story/show/75328746,
+75328846,"As a user, I should be able to edit a message","",1,"Jul 21, 2014","Jul 27, 2014",feature,2,unstarted,"Jul 20, 2014",,,Hunter Gillane,"As a user
+When I click ""Edit"" next to a message
+And I change a message's content
+And I click ""Edit Message""
+Then I should be on the home page
+And I should see the updated content of the message",https://www.pivotaltracker.com/story/show/75328846,
+75328876,User can see edit message errors,"",1,"Jul 21, 2014","Jul 27, 2014",feature,2,unstarted,"Jul 20, 2014",,,Hunter Gillane,"As a user
+When I click ""Edit"" next to a message
+And I add a message longer than 140 characters
+And I click ""Edit Message""
+Then I should still see the edit message form
+And the error message ""Message must be less than 140 characters.""",https://www.pivotaltracker.com/story/show/75328876,
+75331138,"As a user, I can delete a message","",1,"Jul 21, 2014","Jul 27, 2014",feature,2,unstarted,"Jul 20, 2014",,,Hunter Gillane,"As a user
+When I visit the home page
+And I click ""Delete"" next to a message
+Then I should be back on the home page
+And I should not see the message",https://www.pivotaltracker.com/story/show/75331138,
+75328806,"As a user, I can comment on a message","",1,"Jul 21, 2014","Jul 27, 2014",feature,2,unstarted,"Jul 20, 2014",,,Hunter Gillane,"As a user
+When I click ""Comment"" next to a message
+And I fill in ""Comment"" with ""Good idea!""
+And I click Add Comment
+Then I should see my comment below the message I commented on",https://www.pivotaltracker.com/story/show/75328806,
+75331286,"As a user, I can click on a message and go to a page with only that message and its comments","",2,"Jul 28, 2014","Aug 3, 2014",feature,2,unstarted,"Jul 20, 2014",,,Hunter Gillane,"As a user
+When I visit the home page
+And I click on a message
+Then I should be on the message page
+And I should only see comments for that message",https://www.pivotaltracker.com/story/show/75331286,
+75350742,Style the home page,"",2,"Jul 28, 2014","Aug 3, 2014",feature,2,unstarted,"Jul 21, 2014",,,Hunter Gillane,,https://www.pivotaltracker.com/story/show/75350742,
+75350758,Style the message page,"",2,"Jul 28, 2014","Aug 3, 2014",feature,2,unstarted,"Jul 21, 2014",,,Hunter Gillane,,https://www.pivotaltracker.com/story/show/75350758,
+75350818,"As a user, I can like a message","",2,"Jul 28, 2014","Aug 3, 2014",feature,2,unstarted,"Jul 21, 2014",,,Hunter Gillane,"As a user
+When I visit the homepage
+I should see ""0 Likes"" next to each message
+And When I click Like next to a message
+I should see ""1 Like"" next to the message
+And if I click ""Like"" again for the same message
+Then I should see ""2 Likes"" for that message",https://www.pivotaltracker.com/story/show/75350818,
+75350908,"As a user, I can unlike a message","",2,"Jul 28, 2014","Aug 3, 2014",feature,2,unstarted,"Jul 21, 2014",,,Hunter Gillane,"As a user
+When I visit the homepage
+I should see ""0 Likes"" next to each message
+And When I click Like next to a message
+I should see ""1 Like"" next to the message
+And if I click ""Unlike"" again for the same message
+Then I should see ""0 Likes"" for that message",https://www.pivotaltracker.com/story/show/75350908,

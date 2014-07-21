@@ -13,9 +13,9 @@ class App < Sinatra::Application
   end
 
   get "/" do
-    @messages = @database_connection.sql("SELECT * FROM messages")
+    messages = @database_connection.sql("SELECT * FROM messages")
 
-    erb :home
+    erb :home, locals: {messages: messages}
   end
 
   post "/messages" do

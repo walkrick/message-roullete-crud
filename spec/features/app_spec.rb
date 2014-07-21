@@ -1,18 +1,13 @@
-require 'rspec'
-require 'capybara'
+require "rspec"
+require "capybara"
 
-feature "home page" do
-  scenario "has content" do
-    visit '/'
-    expect(page).to have_title("Message")
+feature "Messages" do
+  scenario "As a user, I can submit a message" do
+    visit "/"
+
     expect(page).to have_content("Message Roullete")
-  end
 
-  scenario "as a user, I can submit a message" do
-    visit '/'
-
-    expect(page).to have_content("Message:")
-    fill_in "message", :with => "Hello Everyone!"
+    fill_in "Message", :with => "Hello Everyone!"
 
     click_button "Submit"
 
@@ -20,10 +15,9 @@ feature "home page" do
   end
 
   scenario "As a user, I see an error message if I enter a message > 140 characters" do
-    visit '/'
+    visit "/"
 
-    expect(page).to have_content("Message:")
-    fill_in "message", :with => "a" * 141
+    fill_in "Message", :with => "a" * 141
 
     click_button "Submit"
 

@@ -21,6 +21,6 @@ feature "Messages" do
 
     click_button "Submit"
 
-    expect(page).to have_content("Error: restrict your message to only 140 characters.")
+    expect(page).to have_content("Message must be less than 140 characters.")
   end
 end

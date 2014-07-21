@@ -1,10 +1,10 @@
-<form method="post" action="/message">
-  <label id="message_label" for="message">Message:</label>
+<form method="post" action="/messages">
+  <label for="message">Message:</label>
   <textarea type="text" col="40" row="5" id="message" name="message"></textarea><br>
   <button>Submit</button>
 </form>
 
-<% @messages.each do |message| %>
+<% messages.each do |message| %>
 
   <li><%= message["message"] %></li>
 

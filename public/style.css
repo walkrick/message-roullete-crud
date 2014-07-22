@@ -1,5 +1,6 @@
 body {
     text-align: center;
+    background-color:#FF4700;
 }
 
 #message {
@@ -7,3 +8,7 @@ body {
     height: 50px;
 }
 
+form {font-family: Courier;
+        color: chartreuse}
+h1 {color: black;
+    font-family: fantasy;}

@@ -4,8 +4,13 @@ require "active_record"
 class DatabaseConnection
   attr_reader :connection
 
+
   def self.establish(environment = "development", config_file_path="config/database.yml")
     @@_connection ||= new(environment, config_file_path)
+  end
+
+  def find(id)
+    connection.sql("SELECT * FROM messages WHERE id = #{id}").first
   end
 
   def self.clear!

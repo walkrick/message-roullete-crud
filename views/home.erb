@@ -8,12 +8,25 @@
 
   <li><%= message["message"] %> <a href="/messages/<%= message["id"] %>/edit">Edit</a>
 
-    <form method="post" action="/messages/<%= message["id"]%>">
+    <form method="post" action="/messages/<%= message["id"] %>">
       <input type="hidden" name="_method" value="delete"/>
       <input type="submit" value="Delete Message"/>
     </form>
 
+    <form method="post" action="/comment/<%= message["id"] %>">
+      <input type="text" name="comment" id="comment"/>
+      <input type="submit" value="Comment"/>
+    </form>
+
+    <% comments.each do |comment| %>
+
+    <dt><%= if message["id"] == comment["message_id"]
+               comment["comment"]
+         end %></dt>
+  <% end %>
   </li>
 
 <% end %>
 
+
+<!--<a href="/comment/comments["id"] %>">Comments</a>-->

@@ -3,6 +3,7 @@ require "active_record"
 require "gschool_database_connection"
 require "rack-flash"
 require "./lib/message_table"
+require "./lib/comment_table"
 
 class App < Sinatra::Application
   enable :sessions
@@ -12,12 +13,14 @@ class App < Sinatra::Application
     super
     @database_connection = GschoolDatabaseConnection::DatabaseConnection.establish(ENV["RACK_ENV"])
     @message_table = MessageTable.new(GschoolDatabaseConnection::DatabaseConnection.establish(ENV["RACK_ENV"]))
+    @comment_table = CommentTable.new(GschoolDatabaseConnection::DatabaseConnection.establish(ENV["RACK_ENV"]))
   end
 
   get "/" do
-    message = @database_connection.sql("SELECT * FROM messages")
+    messages = @database_connection.sql("SELECT * FROM messages")
+    comments = @database_connection.sql("SELECT * FROM comments")
 
-    erb :home, locals: {messages: message}
+    erb :home, locals: {messages: messages, comments: comments}
   end
 
   post "/messages" do
@@ -49,14 +52,26 @@ class App < Sinatra::Application
       flash[:error] = "Message must be less than 140 characters."
       redirect "/messages/#{params[:id]}/edit"
     end
-end
-    delete "/messages/:id" do
-      @message_table.delete(params[:id])
+  end
 
-      flash[:notice] = "Message deleted"
+  delete "/messages/:id" do
+    @message_table.delete(params[:id])
 
-      redirect "/"
+    flash[:notice] = "Message deleted"
+
+    redirect "/"
+  end
+
+  post "/comment/:id" do
+
+    comment = params[:comment]
+    if comment.length <= 140
+      @database_connection.sql("INSERT INTO comments (comment, message_id) VALUES ('#{comment}', #{params[:id]})")
+    else
+      flash[:error] = "Message must be less than 140 characters."
     end
+    redirect "/"
+  end
 
 end
 
